@@ -20,9 +20,50 @@ The cutest Discord client mod
 -   Settings sync: Keep your plugins and their settings synchronised between devices / apps (optional)
 
 
-## Installing / Uninstalling
+## Installation
 
-Visit https://vencord.dev/download
+### For End-Users: Windows Setup (Recommended)
+
+1. Download `MaresalCordSetup.exe` from the [latest release](https://github.com/Maresal/MaresalCord/releases/latest)
+2. Run `MaresalCordSetup.exe`
+3. Follow the installer prompts
+4. Your Discord will be automatically patched with MaresalCord
+5. Launch Discord normally — MaresalCord modifications load at startup
+
+**No admin rights required. Installer works with Discord Stable, Canary, and PTB.**
+
+### For Developers: Build from Source
+
+```bash
+git clone https://github.com/Maresal/MaresalCord.git
+cd MaresalCord
+pnpm install
+pnpm build
+pnpm inject
+```
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed build instructions.
+
+### Traditional Installation
+
+For other installation methods, visit [https://vencord.dev/download](https://vencord.dev/download)
+
+## Uninstallation
+
+**Windows Setup Users:**
+- Settings > Apps & Features > Search "MaresalCord" > Uninstall
+
+**Other Methods:**
+- See [CONTRIBUTING.md](./CONTRIBUTING.md) for manual removal
+
+## Verifying Installation
+
+After installation, Discord will launch with MaresalCord modifications active. You should see:
+- MaresalCord branding in Settings
+- Built-in plugins available in Settings > Plugins
+- Custom CSS editor in Settings > Themes
+
+Need help? Join our [community server](https://discord.gg/D9uwnFnqmd)
 
 ## Join our Support/Community Server
 
