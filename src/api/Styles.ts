@@ -31,7 +31,7 @@ export interface Style {
     dom: HTMLStyleElement | null;
 }
 
-export const styleMap = window.VencordStyles ??= new Map();
+export const styleMap = window.MaresalCordStyles ??= new Map();
 
 export const vencordRootNode = document.createElement("vencord-root");
 /**
@@ -57,9 +57,9 @@ export function initStyles() {
     const vesktopCssNode = IS_VESKTOP ? createAndAppendStyle("vesktop-css-core", coreStyleRootNode) : null;
     createAndAppendStyle("vencord-margins", coreStyleRootNode).textContent = generateMarginCss();
 
-    VencordNative.native.getRendererCss().then(css => rendererCssNode.textContent = css);
+    MaresalCordNative.native.getRendererCss().then(css => rendererCssNode.textContent = css);
     if (IS_DEV) {
-        VencordNative.native.onRendererCssUpdate(newCss => {
+        MaresalCordNative.native.onRendererCssUpdate(newCss => {
             rendererCssNode.textContent = newCss;
         });
     }
@@ -71,7 +71,7 @@ export function initStyles() {
         });
     }
 
-    VencordNative.themes.getSystemValues().then(values => {
+    MaresalCordNative.themes.getSystemValues().then(values => {
         const variables = Object.entries(values)
             .filter(([, v]) => !!v)
             .map(([k, v]) => `--${k}: ${v};`)

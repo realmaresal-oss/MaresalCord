@@ -33,13 +33,13 @@ async function toggle(isEnabled: boolean) {
     if (!style) {
         if (isEnabled) {
             style = createAndAppendStyle("vencord-custom-css", userStyleRootNode);
-            VencordNative.quickCss.addChangeListener(css => {
+            MaresalCordNative.quickCss.addChangeListener(css => {
                 style.textContent = css;
                 // At the time of writing this, changing textContent resets the disabled state
                 style.disabled = !Settings.useQuickCss;
                 updatePopoutWindows();
             });
-            style.textContent = await VencordNative.quickCss.get();
+            style.textContent = await MaresalCordNative.quickCss.get();
         }
     } else
         style.disabled = !isEnabled;
@@ -75,7 +75,7 @@ async function initThemes() {
         previousThemeBlobObjectURLs.forEach(url => URL.revokeObjectURL(url));
 
         const objectUrls = await Promise.all(enabledThemes.map(async theme => {
-            const themeData = await VencordNative.themes.getThemeData(theme);
+            const themeData = await MaresalCordNative.themes.getThemeData(theme);
             if (!themeData) return null;
 
             const blob = new Blob([themeData], { type: "text/css" });
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (!IS_WEB) {
-        VencordNative.quickCss.addThemeChangeListener(initThemes);
+        MaresalCordNative.quickCss.addThemeChangeListener(initThemes);
     }
 }, { once: true });
 

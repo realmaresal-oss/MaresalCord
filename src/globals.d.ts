@@ -45,9 +45,9 @@ declare global {
     export var VERSION: string;
     export var BUILD_TIMESTAMP: number;
 
-    export var VencordNative: typeof import("./VencordNative").default;
+    export var MaresalCordNative: typeof import("./MaresalCordNative").default;
     export var Vencord: typeof import("./Vencord");
-    export var VencordStyles: Map<string, Style>;
+    export var MaresalCordStyles: Map<string, Style>;
     export var appSettings: {
         set(setting: string, v: any): void;
     };

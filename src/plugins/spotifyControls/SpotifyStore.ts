@@ -96,7 +96,7 @@ export const SpotifyStore = proxyLazyWebpack(() => {
                 ? "spotify:" + path.replaceAll("/", (_, idx) => idx === 0 ? "" : ":")
                 : "https://open.spotify.com" + path;
 
-            VencordNative.native.openExternal(url);
+            MaresalCordNative.native.openExternal(url);
         }
 
         // Need to keep track of this manually

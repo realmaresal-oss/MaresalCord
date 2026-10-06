@@ -135,7 +135,7 @@ export default definePlugin({
                         cancelText: "Appeal",
                         confirmText: "Ok",
                         onCancel: async () =>
-                            VencordNative.native.openExternal(
+                            MaresalCordNative.native.openExternal(
                                 "https://reviewdb.mantikafasi.dev/api/redirect?"
                                 + new URLSearchParams({
                                     token: Auth.token!,

@@ -35,12 +35,12 @@ const cssListeners = new Set<(css: string) => void>();
 const NOOP = () => { };
 const NOOP_ASYNC = async () => { };
 
-const setCssDebounced = debounce((css: string) => VencordNative.quickCss.set(css));
+const setCssDebounced = debounce((css: string) => MaresalCordNative.quickCss.set(css));
 
 const themeStore = DataStore.createStore("VencordThemes", "VencordThemeData");
 
 // probably should make this less cursed at some point
-window.VencordNative = {
+window.MaresalCordNative = {
     themes: {
         uploadTheme: (fileName: string, fileData: string) => DataStore.set(fileName, fileData, themeStore),
         deleteTheme: (fileName: string) => DataStore.del(fileName, themeStore),
@@ -106,7 +106,7 @@ window.VencordNative = {
 
             win.baseUrl = EXTENSION_BASE_URL;
             win.setCss = setCssDebounced;
-            win.getCurrentCss = () => VencordNative.quickCss.get();
+            win.getCurrentCss = () => MaresalCordNative.quickCss.get();
             win.getTheme = this.getEditorTheme;
 
             win.document.write(monacoHtmlLocal);

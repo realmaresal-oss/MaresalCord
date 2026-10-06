@@ -26,7 +26,7 @@ import { resetLanguageDefaults, settings } from "./settings";
 
 export const cl = classNameFactory("vc-trans-");
 
-const Native = VencordNative.pluginHelpers.Translate as PluginNative<typeof import("./native")>;
+const Native = MaresalCordNative.pluginHelpers.Translate as PluginNative<typeof import("./native")>;
 
 interface GoogleData {
     translation: string;

@@ -17,7 +17,7 @@
 */
 
 declare global {
-    export var VencordNative: typeof import("./VencordNative").default;
+    export var MaresalCordNative: typeof import("./MaresalCordNative").default;
     export var Vencord: typeof import("./Vencord");
 }
 

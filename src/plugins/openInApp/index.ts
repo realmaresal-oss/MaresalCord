@@ -78,7 +78,7 @@ const pluginSettings = definePluginSettings(
 );
 
 
-const Native = VencordNative.pluginHelpers.OpenInApp as PluginNative<typeof import("./native")>;
+const Native = MaresalCordNative.pluginHelpers.OpenInApp as PluginNative<typeof import("./native")>;
 
 export default definePlugin({
     name: "OpenInApp",
@@ -138,7 +138,7 @@ export default definePlugin({
                 showToast("Opened link in native app", "success");
 
                 const newUrl = url.replace(rule.match, rule.replace);
-                VencordNative.native.openExternal(newUrl);
+                MaresalCordNative.native.openExternal(newUrl);
 
                 event?.preventDefault();
                 return true;
@@ -157,7 +157,7 @@ export default definePlugin({
     handleAccountView(e: MouseEvent, platformType: string, userId: string) {
         const rule = UrlReplacementRules[platformType];
         if (rule?.accountViewReplace && pluginSettings.store[platformType]) {
-            VencordNative.native.openExternal(rule.accountViewReplace(userId));
+            MaresalCordNative.native.openExternal(rule.accountViewReplace(userId));
             e.preventDefault();
             return true;
         }

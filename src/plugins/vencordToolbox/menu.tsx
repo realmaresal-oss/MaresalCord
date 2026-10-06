@@ -198,7 +198,7 @@ export function buildThemeMenu() {
 
 export function buildThemeMenuEntries() {
     const { useQuickCss, enabledThemes } = useSettings(["useQuickCss", "enabledThemes"]);
-    const [themes] = useAwaiter(VencordNative.themes.getThemesList);
+    const [themes] = useAwaiter(MaresalCordNative.themes.getThemesList);
 
     return (
         <>
@@ -213,7 +213,7 @@ export function buildThemeMenuEntries() {
             <Menu.MenuItem
                 id="edit-quickcss"
                 label="Edit QuickCSS"
-                action={() => VencordNative.quickCss.openEditor()}
+                action={() => MaresalCordNative.quickCss.openEditor()}
             />
             <Menu.MenuItem
                 id="manage-themes"

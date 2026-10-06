@@ -265,12 +265,12 @@ export default definePlugin({
     customEntries: [] as EntryOptions[],
 
     get electronVersion() {
-        return VencordNative.native.getVersions().electron || window.legcord?.electron || null;
+        return MaresalCordNative.native.getVersions().electron || window.legcord?.electron || null;
     },
 
     get chromiumVersion() {
         try {
-            return VencordNative.native.getVersions().chrome
+            return MaresalCordNative.native.getVersions().chrome
                 // @ts-expect-error Typescript will add userAgentData IMMEDIATELY
                 || navigator.userAgentData?.brands?.find(b => b.brand === "Chromium" || b.brand === "Google Chrome")?.version
                 || null;

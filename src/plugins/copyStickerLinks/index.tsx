@@ -55,7 +55,7 @@ function buildMenuItem(sticker: PartialSticker, addBottomSeparator: boolean) {
                     label="Open Sticker Link"
                     leadingAccessory={{ type: "icon", icon: LinkIcon }}
                     trailingIndicator={{ type: "icon", icon: TopRightArrow }}
-                    action={() => VencordNative.native.openExternal(getUrl(sticker))}
+                    action={() => MaresalCordNative.native.openExternal(getUrl(sticker))}
                 />
             </Menu.MenuGroup>
             {addBottomSeparator && <Menu.MenuSeparator />}

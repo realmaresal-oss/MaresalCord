@@ -20,9 +20,9 @@ import { debounce } from "@shared/debounce";
 import { IpcEvents } from "@shared/IpcEvents";
 import { contextBridge, webFrame } from "electron/renderer";
 
-import VencordNative, { invoke, sendSync } from "./VencordNative";
+import MaresalCordNative, { invoke, sendSync } from "./MaresalCordNative";
 
-contextBridge.exposeInMainWorld("VencordNative", VencordNative);
+contextBridge.exposeInMainWorld("MaresalCordNative", MaresalCordNative);
 
 // Discord
 if (location.protocol !== "data:") {
@@ -35,7 +35,7 @@ if (location.protocol !== "data:") {
     }
 } // Monaco popout
 else {
-    contextBridge.exposeInMainWorld("setCss", debounce(VencordNative.quickCss.set));
-    contextBridge.exposeInMainWorld("getCurrentCss", VencordNative.quickCss.get);
-    contextBridge.exposeInMainWorld("getTheme", VencordNative.quickCss.getEditorTheme);
+    contextBridge.exposeInMainWorld("setCss", debounce(MaresalCordNative.quickCss.set));
+    contextBridge.exposeInMainWorld("getCurrentCss", MaresalCordNative.quickCss.get);
+    contextBridge.exposeInMainWorld("getTheme", MaresalCordNative.quickCss.getEditorTheme);
 }

@@ -57,7 +57,7 @@ export async function putCloudSettings(manual?: boolean) {
 
         const { written } = await res.json();
         PlainSettings.cloud.settingsSyncVersion = written;
-        VencordNative.settings.set(PlainSettings);
+        MaresalCordNative.settings.set(PlainSettings);
 
         logger.info("Settings uploaded to cloud successfully");
 
@@ -146,7 +146,7 @@ export async function getCloudSettings(shouldNotify = true, force = false) {
 
         // sync with server timestamp instead of local one
         PlainSettings.cloud.settingsSyncVersion = written;
-        VencordNative.settings.set(PlainSettings);
+        MaresalCordNative.settings.set(PlainSettings);
 
         logger.info("Settings loaded from cloud successfully");
         if (shouldNotify)

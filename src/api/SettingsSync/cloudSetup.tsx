@@ -22,11 +22,11 @@ export async function checkCloudUrlCsp() {
     const { host } = getCloudUrl();
     if (host === "api.vencord.dev") return true;
 
-    if (await VencordNative.csp.isDomainAllowed(Settings.cloud.url, ["connect-src"])) {
+    if (await MaresalCordNative.csp.isDomainAllowed(Settings.cloud.url, ["connect-src"])) {
         return true;
     }
 
-    const res = await VencordNative.csp.requestAddOverride(Settings.cloud.url, ["connect-src"], "Cloud Sync");
+    const res = await MaresalCordNative.csp.requestAddOverride(Settings.cloud.url, ["connect-src"], "Cloud Sync");
     if (res === "ok") {
         openModal(props => (
             <ConfirmModal

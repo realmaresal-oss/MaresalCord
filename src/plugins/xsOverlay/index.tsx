@@ -186,7 +186,7 @@ async function start() {
     });
 }
 
-const Native = VencordNative.pluginHelpers.XSOverlay as PluginNative<typeof import("./native")>;
+const Native = MaresalCordNative.pluginHelpers.XSOverlay as PluginNative<typeof import("./native")>;
 
 export default definePlugin({
     name: "XSOverlay",

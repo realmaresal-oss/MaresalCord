@@ -191,7 +191,7 @@ function VencordSettings() {
                     <QuickAction
                         Icon={PaintbrushIcon}
                         text="Edit QuickCSS"
-                        action={() => VencordNative.quickCss.openEditor()}
+                        action={() => MaresalCordNative.quickCss.openEditor()}
                     />
                     {!IS_WEB && (
                         <>
@@ -203,14 +203,14 @@ function VencordSettings() {
                             <QuickAction
                                 Icon={FolderIcon}
                                 text="Open Settings Folder"
-                                action={() => VencordNative.settings.openFolder()}
+                                action={() => MaresalCordNative.settings.openFolder()}
                             />
                         </>
                     )}
                     <QuickAction
                         Icon={GithubIcon}
                         text="View Source Code"
-                        action={() => VencordNative.native.openExternal("https://github.com/" + gitRemote)}
+                        action={() => MaresalCordNative.native.openExternal("https://github.com/" + gitRemote)}
                     />
                 </QuickActionCard>
             </section>
