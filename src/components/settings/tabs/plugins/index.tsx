@@ -209,7 +209,7 @@ function PluginSettings() {
         );
     };
 
-    const [newPlugins] = useAwaiter(() => DataStore.get("Vencord_existingPlugins").then((cachedPlugins: Record<string, number> | undefined) => {
+    const [newPlugins] = useAwaiter(() => DataStore.get("MaresalCord_existingPlugins").then((cachedPlugins: Record<string, number> | undefined) => {
         const now = Date.now() / 1000;
         const existingTimestamps: Record<string, number> = {};
         const sortedPluginNames = Object.values(sortedPlugins).map(plugin => plugin.name);
@@ -221,7 +221,7 @@ function PluginSettings() {
                 newPlugins.push(p);
             }
         }
-        DataStore.set("Vencord_existingPlugins", existingTimestamps);
+        DataStore.set("MaresalCord_existingPlugins", existingTimestamps);
 
         return lodash.isEqual(newPlugins, sortedPluginNames) ? [] : newPlugins;
     }));

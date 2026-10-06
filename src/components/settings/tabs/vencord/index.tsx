@@ -27,7 +27,7 @@ import { SettingsTab, wrapTab } from "@components/settings/tabs/BaseTab";
 import { openContributorModal } from "@components/settings/tabs/plugins/ContributorModal";
 import { openPluginModal } from "@components/settings/tabs/plugins/PluginModal";
 import SettingsPlugin from "@plugins/_core/settings";
-import { gitRemote } from "@shared/vencordUserAgent";
+import { gitRemote } from "@shared/maresalcordUserAgent";
 import { IS_WINDOWS } from "@utils/constants";
 import { Margins } from "@utils/margins";
 import { isPluginDev } from "@utils/misc";
@@ -130,7 +130,7 @@ function Switches() {
     });
 }
 
-function VencordSettings() {
+function MaresalCordSettings() {
     const donateImage = useMemo(() =>
         Math.random() > 0.5 ? DEFAULT_DONATE_IMAGE : SHIGGY_DONATE_IMAGE,
         []
@@ -240,5 +240,5 @@ function VencordSettings() {
     );
 }
 
-export default wrapTab(VencordSettings, "MaresalCord Settings");
+export default wrapTab(MaresalCordSettings, "MaresalCord Settings");
 

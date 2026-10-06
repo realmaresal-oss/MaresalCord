@@ -123,13 +123,25 @@ window.MaresalCordNative = {
     settings: {
         get: () => {
             try {
-                return JSON.parse(localStorage.getItem("VencordSettings") || "{}");
+                // Try new key first
+                let settings = localStorage.getItem("MaresalCordSettings");
+
+                // Fallback to old key for migration
+                if (!settings) {
+                    settings = localStorage.getItem("VencordSettings");
+                    // Migrate to new key if found
+                    if (settings) {
+                        localStorage.setItem("MaresalCordSettings", settings);
+                    }
+                }
+
+                return JSON.parse(settings || "{}");
             } catch (e) {
                 console.error("Failed to parse settings from localStorage: ", e);
                 return {};
             }
         },
-        set: async (s: Settings) => localStorage.setItem("VencordSettings", JSON.stringify(s)),
+        set: async (s: Settings) => localStorage.setItem("MaresalCordSettings", JSON.stringify(s)),
         openFolder: async () => Promise.reject("settings:openFolder is not supported on web"),
     },
 
